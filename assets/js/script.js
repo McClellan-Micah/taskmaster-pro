@@ -200,6 +200,8 @@ $(".card .list-group").sortable({
     console.log("out", event.target);
   },
   update: function(event) {
+    var tempArr = [];
+
     //loop over current set of children in sortable list
     $(this).children().each(function() {
       var text = $(this)
@@ -211,8 +213,23 @@ $(".card .list-group").sortable({
         .find("span")
         .text()
         .trim();
-
-      console.log(text, date);
+      
+      //add task data to the temp array as an object
+      tempArr.push({
+        text: text,
+        date: date
+      });
     });
+
+    //trim down list's ID to match object property
+    var arrName = $(this)
+    .attr("id")
+    .replace("list-", "");
+
+    //update array on tasks object and save
+    tasks[arrName] = tempArr;
+    saveTasks();
+
+    console.log(tempArr);
   }
 });
