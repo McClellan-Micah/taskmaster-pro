@@ -287,6 +287,10 @@ $("#modalDueDate").datepicker({
   minDate: 1
 });
 
-
+setInterval(function() {
+  $(".card .list-group-item").each(function (el) {
+    auditTask(el);
+  });
+}, (1000 * 60) * 30); //the parameter we set is a formula for 1800000, which equals 30 minutes.
 
 
