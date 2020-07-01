@@ -214,13 +214,14 @@ $("#remove-tasks").on("click", function() {
 // load tasks for the first time
 loadTasks();
 
-//make stasks ortable
+//make tasks sortable
 $(".card .list-group").sortable({
   connectWith: $(".card .list-group"),
   scroll: false,
   tolerance: "pointer",
   helper: "clone",
   activate: function(event) {
+    
     //console.log("activate", this);
   },
   deactivate: function(event) {
@@ -273,13 +274,13 @@ $("#trash").droppable({
   tolerance: "touch",
   drop: function(event, ui) {
     ui.draggable.remove();
-    console.log("drop");
+    //console.log("drop");
   },
   over: function(event, ui) {
-    console.log("over");
+    //console.log("over");
   },
   out: function(event, ui) {
-    console.log("out");
+    //console.log("out");
   }
 });
 
